@@ -1,0 +1,74 @@
+.search-container {
+    max-height: 58px;
+    justify-content: space-evenly;
+    padding-block-start: 1.5625rem;
+    margin-block-end: 2.8125rem;
+}
+
+.search-container .search-input {
+    height: 58px;
+    width: 541px;
+    background-color: #22252c;
+    border: none;
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+.search-container #file-input {
+    display: none;
+}
+
+.search-container .upload-btn span {
+    padding-right: 5px;
+}
+
+.upload-btn {
+    margin-inline-end: 1rem;
+    border-radius: 10px;
+    padding: 0.7rem;
+    font-family: Poppins;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background-color: transparent;
+    transition: background-color 400ms;
+}
+
+.upload-btn:hover {
+    background-color: rgba(116, 243, 218, 0.582);
+    color: black;
+}
+
+.keywords {
+    color: white;
+    user-select: none;
+    flex-wrap: wrap;
+    background-color: grey;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.keywords>* {
+    margin-inline-start: 0.8rem;
+    cursor: pointer;
+    margin-block: 0;
+    text-align: center;
+
+}
+
+.more-container > * {
+    border-radius: 10px;
+    padding: 0 1rem;
+    margin-inline-start: 1rem;
+}
+
+.more-btn {
+    background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+
+}
+
+.randomize-btn {
+    background-image: linear-gradient(-86deg, #ff710b 0%, #973030 100%);
+    font-size: 1.2rem;
+}

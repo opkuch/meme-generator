@@ -1,0 +1,167 @@
+main .meme-editor {
+    flex-direction: row-reverse;
+    position: fixed;
+    top: 8rem;
+    /* left: 10%; */
+    max-width: 1100px;
+}
+
+canvas {
+    border-radius: 10px;
+}
+
+.canvas-container {
+    outline: 5px solid rgba(245, 245, 245, 0.108);
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 10px;
+}
+
+.control-box {
+    max-width: 500px;
+    max-height: 550px;
+    background-color: rgba(235, 238, 243, 0.11);
+    border-radius: 30px;
+    padding: 1.5rem;
+    outline: 5px solid rgba(245, 245, 245, 0.408);
+    user-select: none;
+
+}
+
+.txt-container input {
+    font-size: 2rem;
+    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.274), 0 5px 20px rgba(255, 255, 255, 0.244);
+    width: 100%;
+}
+
+.saved-memes-container.move-screen {
+    transition: transform 600ms ease-in-out;
+    transform: translate(25%);
+}
+
+
+.txt-editing {
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: 50px 50px 50px;
+    gap: 2rem;
+    row-gap: 1rem;
+    justify-content: center;
+    background-color: darkcyan;
+    border-radius: 10px;
+    padding: 0.7rem;
+    box-shadow: inset -10px 0 100px rgba(255, 255, 255, 0.256);
+    outline: 2px solid rgba(0, 0, 0, 0.19);
+}
+
+.txt-editing>* {
+    background-color: rgb(248, 244, 244);
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.256);
+
+}
+
+.add-remove-switch>* {
+    font-size: 4.2rem;
+    font-family: Prompt;
+
+}
+
+.txt-editing .select-font {
+    grid-column: span 2
+}
+
+.add-remove-switch, .txt-editing {
+    margin-block-end: 1rem;
+    margin-block-start: 1rem;
+
+}
+
+.control-box .txt-editing>.btn {
+    font-family: Prompt;
+    font-size: 1.8rem;
+}
+
+
+.download-save-share {
+    margin-block-start: 1.5rem;
+    justify-content: space-evenly;
+}
+
+.download-save-share>* {
+    font-family: Prompt;
+    font-size: 1.2rem;
+    color: rgba(245, 245, 245, 0.950);
+}
+
+.download-save-share>* span {
+    color: rgba(0, 0, 0, 0.752);
+    font-size: 1.5rem;
+}
+
+.download-link, .save-btn, .share-btn {
+    border-radius: 15px;
+    box-shadow: inset 0 5px 0 rgba(255, 255, 255, 0.256);
+    transition: all 400ms;
+    padding: 0.2rem;
+
+}
+
+.download-link {
+    background-color: rgba(173, 45, 173, 0.605);
+}
+
+.save-btn {
+    background-color: rgba(220, 124, 15, 0.605);
+
+}
+
+.share-btn {
+    background-color: rgba(39, 94, 213, 0.605);
+}
+
+.add-btn {
+    color: rgb(11, 176, 11);
+}
+
+.delete-btn {
+    color: rgb(199, 35, 35);
+}
+
+.switch-btn {
+    color: rgb(68, 113, 227);
+}
+
+#text-color, #stroke-input {
+    display: none;
+}
+
+.txt-color, .stroke-color, label {
+    transition: all 500ms;
+    cursor: pointer;
+}
+
+.txt-color:active, .stroke-color:active {
+    transform: translateY(2%);
+    box-shadow: none;
+}
+
+.meme-editor .control-box i {
+    font-size: 2rem;
+}
+
+.stickers {
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.922);
+    border-radius: 20px;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.256);
+    max-width: 400px;
+    overflow-x: auto;
+
+}
+
+.stickers>* {
+    margin: 0;
+    margin-inline-start: 0.5rem;
+}

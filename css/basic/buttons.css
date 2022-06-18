@@ -1,0 +1,14 @@
+.btn {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.375rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 200ms;
+}
+
+.btn:active {
+    transform: translateY(2%);
+    box-shadow: none;
+}

@@ -1,0 +1,169 @@
+@media (max-width: 1024px) {
+    .main-layout {
+        min-height: 900px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr 1fr;
+        max-height: 680px;
+        margin-top: 7rem;
+    }
+
+    .gallery-container .img {
+        max-width: 287px;
+        max-height: 302px;
+    }
+    main .search-container {
+        margin-top: 1.5rem;
+    }
+    main .search-container .search-input {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    main .search-container {
+        flex-direction: column;
+        margin-bottom: 4.375rem;
+    }
+
+    .canvas-container {
+        margin-top: 1rem;
+        max-width: 350px;
+        max-height: 350px;
+    }
+
+    main .meme-editor {
+        position: absolute;
+        left: 0;
+        flex-direction: column;
+    }
+
+    .control-box {
+        margin: 0 auto;
+        max-width: 350px;
+    }
+
+    main .control-box>.btn, .control-box .meme-txt {
+        font-size: 0.8rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin: 0;
+        margin-right: 20px;
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        color: black;
+        cursor: pointer;
+        user-select: none;
+        transform: translateX(0);
+    }
+
+    .main-nav {
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+        height: 100%;
+        transform: translateX(1000%);
+        transition: transform .6s, box-shadow .6s;
+        z-index: 2;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-screen.active {
+        opacity: 1;
+        pointer-events: all;
+        transition: all 400ms;
+    }
+
+
+    body.menu-open .main-nav {
+        box-shadow: -6px 0px 17px rgb(0 0 0 / 19%);
+        transform: translateX(0);
+    }
+
+    header .main-nav .btn {
+        font-size: 1.2rem;
+        margin-block-start: 1rem;
+        padding-inline-start: 1rem;
+
+    }
+
+    header .main-nav li {
+        width: 100%;
+    }
+
+    .control-box .meme-txt {
+        padding: 0.5rem;
+    }
+
+
+    .saved-memes-container.move-screen {
+        transition: transform 600ms ease-in-out;
+        transform: translate(0);
+    }
+
+    .upload-btn {
+        margin-block: 1rem;
+    }
+    .stickers {
+        font-size: 1rem;
+    }
+    
+    .more-container {
+        margin-block-start: 0.6rem;
+    }
+    .upload-btn {
+        padding: 0 1rem;
+    }
+    @media (min-width: 870px) {
+        .canvas-container {
+            max-width: 420px;
+            max-height: 420px;
+        }
+        .control-box {
+            max-width: 500px;
+        }
+        main .meme-editor {
+            flex-direction: row-reverse;
+        }
+        .stickers {
+            font-size: 2rem;
+        }
+    }
+    
+}
+
+@media (min-width: 1024px) {
+    main .meme-editor {
+        left: 44%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    .canvas-container {
+        max-width: 500px;
+        max-height: 500px;
+        margin-right: 4rem;
+
+    }
+    main .control-box>.btn {
+        font-size: 2rem;
+    }
+
+    .keywords {
+        margin-left: 20px;
+        border-radius: 20px;
+        padding: 0.5rem;
+    }
+
+    .more-btn {
+        margin-inline-start: 1rem;
+    }
+
+}

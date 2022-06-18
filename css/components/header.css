@@ -1,0 +1,42 @@
+header {
+    height: 4.5625rem;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    user-select: none;
+}
+
+header .header-logo {
+    text-transform: uppercase;
+    font-size: 1.375rem;
+    margin-inline-start: 5.0625rem;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.header-logo span {
+   color:#09c055;
+   text-transform: lowercase;
+
+}
+header .main-nav {
+    margin-inline-start: 5rem;
+}
+header .main-nav .btn {
+    height: 40px;
+    width: 116px;
+    margin-inline-start: 2rem;
+    transition: all 400ms;
+    border-radius: 20px;
+    font-family: Poppins;
+}
+
+.menu-toggle {
+    transform: translateX(1000%);
+    transition: transform 1s;
+}
+
+header .main-nav .btn.nav-active {
+    background-color: white;
+    color: #21ac91;
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+}
