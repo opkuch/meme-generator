@@ -76,7 +76,10 @@ function setLineTxt(txt) {
 }
 
 function changeFontSize(diff) {
+  const canvasHeight = getCanvasHeight()
+  const canvasWidth = getCanvasWidth()
   const line = getSelectedLine()
+  if (line.width >= canvasWidth) return
   line.size += diff
 }
 
