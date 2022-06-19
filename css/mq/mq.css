@@ -1,6 +1,6 @@
 @media (max-width: 1024px) {
     .main-layout {
-        min-height: 900px;
+        min-height: 930px;
     }
 
     .gallery-container {
@@ -13,9 +13,11 @@
         max-width: 287px;
         max-height: 302px;
     }
+
     main .search-container {
         margin-top: 1.5rem;
     }
+
     main .search-container .search-input {
         margin-bottom: 1rem;
         width: 100%;
@@ -27,24 +29,26 @@
     }
 
     .canvas-container {
-        margin-top: 1rem;
+        margin-bottom: 1rem;
         max-width: 350px;
         max-height: 350px;
+
     }
 
     main .meme-editor {
         position: absolute;
         left: 0;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
+
 
     .control-box {
         margin: 0 auto;
         max-width: 350px;
     }
 
-    main .control-box>.btn, .control-box .meme-txt {
-        font-size: 0.8rem;
+    .download-save-share > *, .download-save-share > * span {
+        font-size: 1rem;
     }
 
     .menu-toggle {
@@ -98,51 +102,36 @@
         width: 100%;
     }
 
-    .control-box .meme-txt {
-        padding: 0.5rem;
+    .saved-memes {
+        position: static;
+        grid-template-columns: 1fr 1fr;
     }
 
-
-    .saved-memes-container.move-screen {
-        transition: transform 600ms ease-in-out;
-        transform: translate(0);
+    .saved-memes p {
+        grid-column: span 2;
     }
 
     .upload-btn {
         margin-block: 1rem;
     }
+
     .stickers {
         font-size: 1rem;
     }
-    
+
     .more-container {
         margin-block-start: 0.6rem;
     }
+
     .upload-btn {
         padding: 0 1rem;
     }
-    @media (min-width: 870px) {
-        .canvas-container {
-            max-width: 420px;
-            max-height: 420px;
-        }
-        .control-box {
-            max-width: 500px;
-        }
-        main .meme-editor {
-            flex-direction: row-reverse;
-        }
-        .stickers {
-            font-size: 2rem;
-        }
-    }
-    
 }
 
 @media (min-width: 1024px) {
     main .meme-editor {
-        left: 44%;
-        top: 70%;
+        left: 47%;
+        top: 51%;
         transform: translate(-50%, -50%);
     }
 
@@ -152,6 +141,7 @@
         margin-right: 4rem;
 
     }
+
     main .control-box>.btn {
         font-size: 2rem;
     }

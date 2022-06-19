@@ -2,31 +2,37 @@
 .saved-memes-container {
     display: block;
     transition: transform 600ms ease-in-out;
-    position: absolute;
+    position: fixed;
     transform: translate(-250%);
 
 }
 
 .saved-memes-container.move-screen {
     transition: transform 600ms ease-in-out;
-    transform: translate(6%);
+    transform: translate(0);
 }
 
 
 .saved-memes {
+    max-height: 550px;
     overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    grid-auto-flow: row;
 }
+
 .saved-meme > div {
     scroll-snap-align: start;
 }
 
-.saved-meme {
+.saved-memes figure {
     max-width: 300px;
     max-height: 300px;
     transition: all 400ms linear;  
+}
+
+.saved-memes img {
+    height: 100%;
 }
 
 .saved-memes p {
@@ -45,11 +51,3 @@
 .saved-memes-container h1 span {
     color: rgb(23, 203, 203);
 }
-
-.saved-memes {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    justify-content: center;
-    grid-auto-flow: row;
-}
-

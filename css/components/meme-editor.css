@@ -34,12 +34,6 @@ canvas {
     width: 100%;
 }
 
-.saved-memes-container.move-screen {
-    transition: transform 600ms ease-in-out;
-    transform: translate(25%);
-}
-
-
 .txt-editing {
     grid-template-columns: 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px;

@@ -35,7 +35,7 @@
   }
 
   .img:hover, .img:active {
-    box-shadow: 0px 5px 0px #edf1ef46;
+    box-shadow: 0px 5px 0px #edf1ef21;
     transform: translateY(1%);
   }
 
