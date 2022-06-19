@@ -62,7 +62,7 @@ function _createImgs() {
   gImgs = []
   for (var i = 1; i < 26; i++) {
     gImgs.push(
-      _createImg(i, `../../imgs/${i}.jpg`, [`${_getKeyword()}`])
+      _createImg(i, `imgs/${i}.jpg`, [`${_getKeyword()}`])
     )
   }
   saveToStorage(GALLERY_KEY, gImgs)

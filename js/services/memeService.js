@@ -1,6 +1,7 @@
 'use strict'
 
 const SAVED_MEMES_KEY = 'savedData'
+var gSavedMemes
 
 var gMeme = {
   selectedImgId: 5,
@@ -21,8 +22,6 @@ var gMeme = {
     },
   ],
 }
-
-var gSavedMemes
 
 function getLines() {
   return gMeme.lines
@@ -93,7 +92,7 @@ function changeTextColor(color) {
 function addLine() {
   const lines = getLines()
   const line = {
-    txt: "Write something..",
+    txt: 'Write something..',
     size: 40,
     color: 'white',
     pos: { x: 0, y: 50 },
@@ -193,8 +192,6 @@ function getLineByPos(pos) {
     const xEnd = line.width + line.pos.x
     const yStart = line.pos.y - line.size
     const yEnd = line.pos.y
-    // console.log('pos: ', pos)
-    // console.log('xStart:', xStart, 'xEnd: ', xEnd, 'yStart: ', yStart, 'yEnd', yEnd)
     if (pos.x >= xStart && pos.x <= xEnd && pos.y >= yStart && pos.y <= yEnd)
       return line
   })
@@ -203,8 +200,8 @@ function getLineByPos(pos) {
 }
 
 function updateClickedLine(clickedLine) {
-  var lineIdx = gMeme.lines.findIndex(line => {
-      return line === clickedLine
+  var lineIdx = gMeme.lines.findIndex((line) => {
+    return line === clickedLine
   })
   gMeme.selectedLineIdx = lineIdx
   gMeme.lines[lineIdx].isDrag = true
@@ -221,26 +218,24 @@ function randomizeMeme() {
     selectedLineIdx: 0,
     isDragging: false,
     imgData: '',
-    lines: []
+    lines: [],
   }
   gMeme = randomizeLines(gMeme)
 }
 
 function randomizeLines(randomMeme) {
-  const randomNum = getRandomIntInclusive(1,2)
+  const randomNum = getRandomIntInclusive(1, 2)
   for (let i = 0; i < randomNum; i++) {
-    randomMeme.lines.push(
-      {
-        txt: genMemeSentence(),
-        size: getRandomIntInclusive(16, 35),
-        color: getRandomColor(),
-        strokeColor: getRandomColor(),
-        pos: {x: 0, y: 50},
-        family: 'IMPACT',
-        isDrag: false,
-        isMark: false
-      }
-    )
+    randomMeme.lines.push({
+      txt: genMemeSentence(),
+      size: getRandomIntInclusive(16, 35),
+      color: getRandomColor(),
+      strokeColor: getRandomColor(),
+      pos: { x: 0, y: 50 },
+      family: 'IMPACT',
+      isDrag: false,
+      isMark: false,
+    })
     if (i === 1) randomMeme.lines[1].pos.y = 200
   }
   return randomMeme

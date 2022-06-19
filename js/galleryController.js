@@ -1,6 +1,5 @@
 'use strict'
 
-
 function initGallery() {
   initGalleryModel()
   renderGallery()
@@ -11,7 +10,6 @@ function initGallery() {
 
 function renderGallery() {
   const imgs = getImgs()
-  // console.log(imgs)
   var strHTMLs = []
   imgs.forEach((img) => {
     strHTMLs.push(
@@ -28,7 +26,7 @@ function onImgSelect(elImg) {
   initMeme()
 }
 
-function switchScreens(el = {dataset: {value: 'gallery'}}) {
+function switchScreens(el = { dataset: { value: 'gallery' } }) {
   document.querySelector('.meme-txt').value = ''
   const elGallery = document.querySelector('.gallery-container')
   const elEditor = document.querySelector('.meme-editor')
@@ -36,9 +34,10 @@ function switchScreens(el = {dataset: {value: 'gallery'}}) {
   const elSavedMemes = document.querySelector('.saved-memes-container')
   const elGalleryBtn = document.querySelector('.gallery-btn')
   const elMemesBtn = document.querySelector('.saved-memes-btn')
-
+  const elSearchInput = elSearchBox.querySelector('.search-input')
   switch (el.dataset.value) {
     case 'gallery':
+      // displayGallery()
       elGallery.classList.remove('disable')
       elSearchBox.classList.remove('disable')
       elEditor.classList.add('disable')
@@ -63,30 +62,40 @@ function switchScreens(el = {dataset: {value: 'gallery'}}) {
       elMemesBtn.classList.add('nav-active')
       break
   }
+  elSearchInput.value = ''
+  clearFilter()
+  renderGallery()
 }
+
+// function displayGallery(){
+//     elGallery.classList.remove('disable')
+//     elSearchBox.classList.remove('disable')
+//     elEditor.classList.add('disable')
+//     elSavedMemes.classList.remove('move-screen')
+//     elGalleryBtn.classList.add('nav-active')
+//     elMemesBtn.classList.remove('nav-active')
+// }
 
 function toggleMenu() {
   document.body.classList.toggle('menu-open')
   document.querySelector('.main-screen').classList.toggle('active')
-  // console.log(document.querySelector('.main-screen'))
 }
 
-function onSetFilterByTxt(txt) {
-  gFilter = txt
+function onSetFilter(txt) {
+  setFilter(txt)
   renderGallery()
 }
-
 
 function renderSavedMemes() {
   const memes = loadSavedMemes()
   if (!memes) return
-  let strHTMLs 
+  let strHTMLs
   strHTMLs = memes.map((meme, idx) => {
-    let image = new Image()
-    image.src = meme.imgData
-    return `<div class="saved-meme-container" onclick="onMemeSelect(${idx})">
-      <img class="img saved-meme" src="${image.src}" alt="" />
-    </div> `
+    let memeImg = new Image()
+    memeImg.src = meme.imgData
+    return `<figure>
+      <img class="img saved-meme" src="${memeImg.src}" alt="" onclick="onImgSelect(this)"/>
+    </figure> `
   })
   const elSavedMemes = document.querySelector('.saved-memes')
   elSavedMemes.innerHTML = strHTMLs.join('')
@@ -100,10 +109,10 @@ function loadImageFromInput(ev, onImageReady) {
   var reader = new FileReader()
   //After we read the file
   reader.onload = function (event) {
-      var img = new Image()// Create a new html img element
-      img.src = event.target.result // Set the img src to the img file we read
-      //Run the callBack func , To render the img on the canvas
-      img.onload = onImageReady.bind(null, img)
+    var img = new Image() // Create a new html img element
+    img.src = event.target.result // Set the img src to the img file we read
+    //Run the callBack func , To render the img on the canvas
+    img.onload = onImageReady.bind(null, img)
   }
   reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
 }
@@ -112,23 +121,24 @@ function setUploadedImage(img) {
   const newImage = addImageToModel(img)
   setImage(newImage.id)
   initMeme()
-  switchScreens({dataset: {value: 'editor'}})
+  switchScreens({ dataset: { value: 'editor' } })
 }
 
 function renderKeywords() {
   const keywords = getKeywords()
   var strHTMLs
-  strHTMLs = keywords.map(key => `<p class="keyword" data-key="${key.txt}" onclick="onSetFilterByKey(this.dataset.key)" style="font-size: ${key.rate}px;">${key.txt}</p>`)
+  strHTMLs = keywords.map(
+    (key) =>
+      `<p class="keyword" data-key="${key.txt}" onclick="onSetFilterByKey(this.dataset.key)" style="font-size: ${key.rate}px;">${key.txt}</p>`
+  )
   const elKeywords = document.querySelector('.keywords')
   elKeywords.innerHTML = strHTMLs.join('')
 }
 
 function onSetFilterByKey(key) {
-  gFilter = key
   const elSearchInput = document.querySelector('.search-input')
   elSearchInput.value = key
   updateKeywordRate(key)
   renderKeywords()
   renderGallery()
 }
-

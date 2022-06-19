@@ -29,19 +29,26 @@ var gStickers = [
 ]
 var gStickerPage
 
+//RESPONSIVE RESIZE
+window.addEventListener('resize', () => {
+  initMeme()
+})
+
 function initMeme() {
   gCanvas = document.querySelector('canvas')
   gCtx = gCanvas.getContext('2d')
   resizeCanvas()
-  renderStickers()
   renderMeme()
+  renderStickers()
 }
 
-function renderMeme() {
-  const meme = getMeme()
+function renderMeme(meme) {
+  if (!meme) {
+    meme = getMeme()
+  }
+  console.log(meme)
   const imgProps = getImg(meme.selectedImgId)
   const elCanvasContainer = document.querySelector('.canvas-container')
-
   var img = new Image()
   img.src = imgProps.url
   if (imgProps.id !== gImgId) {
@@ -50,15 +57,22 @@ function renderMeme() {
   }
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    renderLines()
+    renderLines(meme.lines)
     drawLineRect()
   }
   gImgId = imgProps.id
 }
 
-function renderLines() {
-  const lines = getLines()
+function renderLines(lines) {
+  if (!lines) lines = getLines()
   lines.forEach((line) => {
+    const canvasHeight = getCanvasHeight()
+    const canvasWidth = getCanvasWidth()
+    if (line.pos.x <= 0) line.pos.x = 0
+    if (line.pos.x >= canvasWidth - line.width)
+      line.pos.x = canvasWidth - line.width
+    if (line.pos.y <= line.size) line.pos.y = line.size
+    if (line.pos.y >= canvasHeight) line.pos.y = canvasHeight
     drawText(line)
   })
 }
@@ -162,8 +176,8 @@ function onDown(ev) {
 function onMove(ev) {
   if (getIsDragging()) {
     const pos = getEvPos(ev)
-    const dx = pos.x - gStartPos.x
-    const dy = pos.y - gStartPos.y
+    var dx = pos.x - gStartPos.x
+    var dy = pos.y - gStartPos.y
     moveLine(dx, dy)
     gStartPos = pos
     renderMeme()
@@ -222,6 +236,10 @@ function getCanvasWidth() {
   return gCanvas.width
 }
 
+function getCanvasHeight() {
+  return gCanvas.height
+}
+
 function onCloseShareModal() {
   document.querySelector('.share-modal').classList.remove('move-center')
 }
@@ -232,6 +250,9 @@ function getCanvas() {
 
 function renderStickers() {
   var strHTMLs = ['']
-  strHTMLs = gStickers.map(sticker => `<p class="sticker" onclick="onSetLineTxt(this.innerText)">${sticker}</p>`)
+  strHTMLs = gStickers.map(
+    (sticker) =>
+      `<p class="sticker" onclick="onSetLineTxt(this.innerText)">${sticker}</p>`
+  )
   document.querySelector('.stickers').innerHTML = strHTMLs.join('')
 }
