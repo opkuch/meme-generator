@@ -30,9 +30,10 @@ var gStickers = [
 var gStickerPage
 
 //RESPONSIVE RESIZE
-window.addEventListener('resize', () => {
-  initMeme()
-})
+// window.addEventListener('resize', () => {
+//   resizeCanvas()
+//   renderMeme()
+// })
 
 function initMeme() {
   gCanvas = document.querySelector('canvas')

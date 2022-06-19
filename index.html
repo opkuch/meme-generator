@@ -14,6 +14,7 @@
   </head>
   <body onload="initGallery(); initMeme();">
     <div class="main-screen" onclick="toggleMenu()"></div>
+    <div class="modal" onclick="onToggleModal()"></div>
     <section class="share-modal flex justify-center align-center">
       <p class="user-msg"></p>
       <div class="share-container"></div>
@@ -87,7 +88,9 @@
           class="search-input"
           placeholder="Search"
           oninput="onSetFilter(this.value)"
+          list="key-datalist"
         />
+        <datalist id="key-datalist"></datalist>
         <div class="keywords flex align-center"></div>
         <div class="more-container flex align-center justify-center">
           <button class="btn randomize-btn" onclick="onRandomizeMeme()">I'm Flexible!</button>

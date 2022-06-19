@@ -101,9 +101,7 @@
     header .main-nav li {
         width: 100%;
     }
-    .saved-memes-container.move-screen {
-        transform: translate(2%);
-    }
+
     .saved-memes {
         grid-template-columns: 1fr 1fr;
     }
@@ -126,6 +124,12 @@
 
     .upload-btn {
         padding: 0 1rem;
+    }
+
+    @media (max-width: 550px) {
+        .saved-memes {
+            grid-template-columns: 1fr;
+        }
     }
 }
 
