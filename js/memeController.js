@@ -233,6 +233,5 @@ function getCanvas() {
 function renderStickers() {
   var strHTMLs = ['']
   strHTMLs = gStickers.map(sticker => `<p class="sticker" onclick="onSetLineTxt(this.innerText)">${sticker}</p>`)
-  strHTMLs.push('<button class="btn nxt" onclick="onChangeStickerPage(-1)">▶</button>')
   document.querySelector('.stickers').innerHTML = strHTMLs.join('')
 }
