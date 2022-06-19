@@ -19,7 +19,6 @@ function initGalleryModel() {
   gImgs = loadFromStorage(GALLERY_KEY)
   if (!gImgs) _createImgs()
   gImageId = gImgs.length
-
 }
 
 function getImg(id) {
@@ -47,10 +46,10 @@ function getKeywords() {
 }
 
 function updateKeywordRate(key) {
+  gFilter = key
   const clickedKey = gKeywords.find(keyword => keyword.txt === key)
   if (clickedKey.rate >= 30) return
   clickedKey.rate++
-  // console.log(clickedKey)
 }
 
 function _getKeyword() {
@@ -63,7 +62,7 @@ function _createImgs() {
   gImgs = []
   for (var i = 1; i < 26; i++) {
     gImgs.push(
-      _createImg(i, `../imgs/${i}.jpg`, [`${_getKeyword()}`])
+      _createImg(i, `../../imgs/${i}.jpg`, [`${_getKeyword()}`])
     )
   }
   saveToStorage(GALLERY_KEY, gImgs)
@@ -75,4 +74,12 @@ function _createImg(id, url, keywords) {
     url,
     keywords,
   }
+}
+
+function clearFilter() {
+  gFilter = ''
+}
+
+function setFilter(txt) {
+  gFilter = txt
 }
