@@ -1,5 +1,6 @@
 'use strict'
 
+const { createElement } = require('react')
 
 function initGallery() {
   initGalleryModel()
@@ -28,7 +29,7 @@ function onImgSelect(elImg) {
   initMeme()
 }
 
-function switchScreens(el = {dataset: {value: 'gallery'}}) {
+function switchScreens(el = { dataset: { value: 'gallery' } }) {
   document.querySelector('.meme-txt').value = ''
   const elGallery = document.querySelector('.gallery-container')
   const elEditor = document.querySelector('.meme-editor')
@@ -78,11 +79,10 @@ function onSetFilter(txt) {
   renderGallery()
 }
 
-
 function renderSavedMemes() {
   const memes = loadSavedMemes()
   if (!memes) return
-  let strHTMLs 
+  let strHTMLs
   strHTMLs = memes.map((meme, idx) => {
     let memeImg = new Image()
     memeImg.src = meme.imgData
@@ -102,10 +102,10 @@ function loadImageFromInput(ev, onImageReady) {
   var reader = new FileReader()
   //After we read the file
   reader.onload = function (event) {
-      var img = new Image()// Create a new html img element
-      img.src = event.target.result // Set the img src to the img file we read
-      //Run the callBack func , To render the img on the canvas
-      img.onload = onImageReady.bind(null, img)
+    var img = new Image() // Create a new html img element
+    img.src = event.target.result // Set the img src to the img file we read
+    //Run the callBack func , To render the img on the canvas
+    img.onload = onImageReady.bind(null, img)
   }
   reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
 }
@@ -114,13 +114,16 @@ function setUploadedImage(img) {
   const newImage = addImageToModel(img)
   setImage(newImage.id)
   initMeme()
-  switchScreens({dataset: {value: 'editor'}})
+  switchScreens({ dataset: { value: 'editor' } })
 }
 
 function renderKeywords() {
   const keywords = getKeywords()
   var strHTMLs
-  strHTMLs = keywords.map(key => `<p class="keyword" data-key="${key.txt}" onclick="onSetFilterByKey(this.dataset.key)" style="font-size: ${key.rate}px;">${key.txt}</p>`)
+  strHTMLs = keywords.map(
+    (key) =>
+      `<p class="keyword" data-key="${key.txt}" onclick="onSetFilterByKey(this.dataset.key)" style="font-size: ${key.rate}px;">${key.txt}</p>`
+  )
   const elKeywords = document.querySelector('.keywords')
   elKeywords.innerHTML = strHTMLs.join('')
 }
@@ -128,7 +131,7 @@ function renderKeywords() {
 function renderDatalist() {
   const keywords = getKeywords()
   var strHTMLs
-  strHTMLs = keywords.map(key => `<option value="${key.txt}">`)
+  strHTMLs = keywords.map((key) => `<option value="${key.txt}">`)
   const elDatalist = document.querySelector('#key-datalist')
   elDatalist.innerHTML = strHTMLs.join('')
 }
