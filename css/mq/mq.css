@@ -105,6 +105,8 @@
     .saved-memes {
         position: static;
         grid-template-columns: 1fr 1fr;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .saved-memes p {
