@@ -6,7 +6,7 @@
     scroll-snap-type: y mandatory;
     scrollbar-width: none;
     max-width: 1243px;
-    max-height: 513px;
+    max-height: 65vh;
     padding: 0 2rem;
     transition: all 600ms;
     user-select: none;

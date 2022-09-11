@@ -1,6 +1,6 @@
 main .meme-editor {
     flex-direction: row-reverse;
-    position: fixed;
+    position: absolute;
     top: 8rem;
     /* left: 10%; */
     max-width: 1100px;

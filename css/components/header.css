@@ -7,7 +7,7 @@ header {
 
 header .header-logo {
     text-transform: uppercase;
-    font-size: 1.375rem;
+    font-size: 1.8;
     margin-inline-start: 5.0625rem;
     color: whitesmoke;
     cursor: pointer;
@@ -19,7 +19,7 @@ header .header-logo {
 
 }
 header .main-nav {
-    margin-inline-start: 5rem;
+    margin-inline-end: 5rem;
 }
 header .main-nav .btn {
     height: 40px;
@@ -27,12 +27,13 @@ header .main-nav .btn {
     margin-inline-start: 2rem;
     transition: all 400ms;
     border-radius: 20px;
-    font-family: Poppins;
+    font-family: 'Poppins';
 }
 
 .menu-toggle {
-    transform: translateX(1000%);
+    transform: translateX(3000%);
     transition: transform 1s;
+    display: none;
 }
 
 header .main-nav .btn.nav-active {

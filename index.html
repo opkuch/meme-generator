@@ -18,7 +18,7 @@
     <section class="share-modal flex justify-center align-center">
       <p class="user-msg"></p>
       <div class="share-container"></div>
-      <button class="btn" onclick="onCloseShareModal()">X</button>
+      <button class="close-share" onclick="onCloseShareModal()">X</button>
     </section>
    
   </div>
@@ -28,7 +28,7 @@
         data-value="gallery"
         onclick="switchScreens(this)"
       >
-        Meme<span>s</span>
+        Meme<span>gen</span>
       </h1>
       <nav class="main-nav">
         <ul class="clean-list flex">
@@ -51,14 +51,13 @@
               Memes
             </button>
           </li>
-          <li><button href="#" class="btn about-btn">About</button></li>
         </ul>
       </nav>
       <button onclick="toggleMenu()" class="menu-toggle">☰</button>
     </header>
     <main class="main-layout">
       <section class="saved-memes-container">
-        <h1 class="flex justify-center">My <span>Memez</span></h1>
+        <h1 class="flex justify-center">My <span>Memes</span></h1>
         <div class="saved-memes grid">
           <div class="scrollbar">
             <div class="thumb"></div>
@@ -176,7 +175,7 @@
               <input
                 type="color"
                 id="text-color"
-                onchange="onChangeTextColor(this.value)"
+                oninput="onChangeTextColor(this.value)"
               />
             </div>
             <div class="stroke-color flex justify-center align-center">
@@ -184,7 +183,7 @@
               <input
                 type="color"
                 id="stroke-input"
-                onchange="onChangeStrokeColor(this.value)"
+                oninput="onChangeStrokeColor(this.value)"
               />
             </div>
             <select class="select-font" onchange="onChangeFontFamily(this.value)">
@@ -233,9 +232,6 @@
     <section class="memes-container">
       <div class="gallery-container grid memes-grid">
     </section>
-    <footer class="flex justify-center">
-      Nadav Ben-Hur - Coding Academy Sprint #2
-    </footer>
     <script src="js/services/uploadService.js"></script>
     <script src="js/services/utilService.js"></script>
     <script src="js/services/storageService.js"></script>

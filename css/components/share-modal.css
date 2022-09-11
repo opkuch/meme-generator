@@ -3,7 +3,7 @@
     top: 50%;
     right: 50%;
     color: white;
-    transform: translate(1500%);
+    transform: translate(3000%);
     flex-direction: column;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -14,10 +14,12 @@
     font-family: Poppins;
     row-gap: 2rem;
     box-shadow: inset 0 3px 0 1px white,  inset 0 5px 20px 10px rgba(255, 255, 255, 0.089);
+    padding: 1.5rem;
 }
 
 .share-modal p {
-    margin: 2rem;
+    /* margin: 2rem;
+    padding: 2rem; */
 }
 
 .share-modal a {
@@ -26,11 +28,20 @@
     border-radius: 15px;
     box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.256);
     transition: all 200ms;
-
 }
 
 .share-modal.move-center {
     transition: all 750ms ease-in-out;
     transform: translate(60%, -50%);
+    display: block;
+}
 
+.close-share {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
 }
