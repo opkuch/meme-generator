@@ -74,6 +74,7 @@
         transform: translateX(1000%);
         transition: transform .6s, box-shadow .6s;
         z-index: 2;
+        margin-inline-end: 0;
     }
 
     .main-nav ul {
